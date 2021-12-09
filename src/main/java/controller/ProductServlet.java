@@ -67,9 +67,7 @@ public class ProductServlet extends HttpServlet {
         RequestDispatcher requestDispatcher=request.getRequestDispatcher("product/edit.jsp");
         int id= Integer.parseInt(request.getParameter("id"));
         Product product=productDAO.findById(id);
-        request.setAttribute("product",product);
-        List<Category> list1= categoryDAO.showAll();
-        request.setAttribute("category",list1);
+        request.setAttribute("product1",product);
         requestDispatcher.forward(request,response);
     }
 
@@ -83,12 +81,29 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void showList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("product/list.jsp");
+//        List<Category> categories = categoryDAO.showAll();
+//        List<Product> productList=productDAO.showAll();
+//        request.setAttribute("product",productList);
+//        request.setAttribute("category",categories);
+//        requestDispatcher.forward(request,response);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("product/list.jsp");
-        List<Category> categories = categoryDAO.showAll();
-        List<Product> productList=productDAO.showAll();
-        request.setAttribute("product",productList);
-        request.setAttribute("category",categories);
-        requestDispatcher.forward(request,response);
+        List<Product> products;
+        String name = request.getParameter("name");
+        if (name == null) {
+            products = productDAO.showAll();
+        } else {
+            products = productDAO.findByName(name);
+        }
+        List<Category> categoryList = null;
+        try {
+            categoryList = categoryDAO.showAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        request.setAttribute("product", products);
+        request.setAttribute("category", categoryList);
+        requestDispatcher.forward(request, response);
     }
 
     @Override

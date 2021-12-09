@@ -26,6 +26,11 @@
     <a href="/products?action=create" class="btn btn-success">Add
         New Product</a>
 </div>
+<div>
+    <form method="get">
+        <input type="text" name="name" placeholder="enter name"><button>find</button>
+    </form>
+</div>
 <br>
 <table>
     <thead>

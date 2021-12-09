@@ -13,11 +13,11 @@
 </head>
 <body>
 <form method="post">
-    <input type="text" name="name" placeholder="name"><br>
-    <input type="text" name="soluong" placeholder="soluong"><br>
-    <input type="text" name="color" placeholder="màu"><br>
-    <input type="text" name="mota" placeholder="mo tả"><br>
-    <input type="text" name="price" placeholder="price"><br>
+    <input type="text" name="name" placeholder="${product1.name}"><br>
+    <input type="text" name="soluong" placeholder="${product1.soluong}"><br>
+    <input type="text" name="color" placeholder="${product1.color}"><br>
+    <input type="text" name="mota" placeholder="${product1.mota}"><br>
+    <input type="text" name="price" placeholder="${product1.price}"><br>
     <button>sửa</button>
 </form>
 </body>
