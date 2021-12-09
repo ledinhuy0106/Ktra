@@ -13,12 +13,12 @@
 </head>
 <body>
 <form method="post">
-  <input type="text" name="name" placeholder="name"><br>
-  <input type="text" name="soluong" placeholder="soluong"><br>
-  <input type="text" name="color" placeholder="màu"><br>
-  <input type="text" name="mota" placeholder="mo tả"><br>
-  <input type="text" name="price" placeholder="price"><br>
-  <button>sửa</button>
+    <input type="text" name="name" placeholder="name"><br>
+    <input type="text" name="soluong" placeholder="soluong"><br>
+    <input type="text" name="color" placeholder="màu"><br>
+    <input type="text" name="mota" placeholder="mo tả"><br>
+    <input type="text" name="price" placeholder="price"><br>
+    <button>sửa</button>
 </form>
 </body>
 </html>

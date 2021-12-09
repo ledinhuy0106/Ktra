@@ -12,12 +12,12 @@ public class Product {
     }
 
 
-    public Product(String name, int soluong, String color, String mota,int price) {
+    public Product(String name, int soluong, String color, String mota, int price) {
         this.name = name;
         this.soluong = soluong;
         this.color = color;
         this.mota = mota;
-        this.price=price;
+        this.price = price;
     }
 
     public Product(int id, String name, int soluong, String color, String mota) {
@@ -34,7 +34,7 @@ public class Product {
         this.soluong = soluong;
         this.color = color;
         this.mota = mota;
-        this.price=price;
+        this.price = price;
     }
 
     public Product(String name, int soluong, String color, String mota) {

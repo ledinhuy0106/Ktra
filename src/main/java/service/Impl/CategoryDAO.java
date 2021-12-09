@@ -13,24 +13,25 @@ public class CategoryDAO implements ICategoryDAO {
     }
 
 
-    protected Connection getConnection(){
-        Connection connection=null;
+    protected Connection getConnection() {
+        Connection connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/product?useSSL=false", "root", "123456");
-        }catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return connection;
     }
+
     @Override
     public List showAll() throws SQLException {
-        List<Category> categories=new ArrayList<>();
-        Connection connection=getConnection();
-        PreparedStatement preparedStatement=connection.prepareStatement("select *from category");
-        ResultSet rs=preparedStatement.executeQuery();
-        while (rs.next()){
-            String danhmuc =rs.getString("danhmuc");
+        List<Category> categories = new ArrayList<>();
+        Connection connection = getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("select *from category");
+        ResultSet rs = preparedStatement.executeQuery();
+        while (rs.next()) {
+            String danhmuc = rs.getString("danhmuc");
             categories.add(new Category(danhmuc));
 
         }
@@ -40,14 +41,14 @@ public class CategoryDAO implements ICategoryDAO {
 
     @Override
     public List showAllIdCategory() throws SQLException {
-        List<Category> categories=new ArrayList<>();
-        Connection connection=getConnection();
-        PreparedStatement preparedStatement=connection.prepareStatement("select *from category");
-        ResultSet rs=preparedStatement.executeQuery();
-        while (rs.next()){
-          int id =rs.getInt("id");
-          String danhmuc=rs.getString("danhmuc");
-            categories.add(new Category(id,danhmuc));
+        List<Category> categories = new ArrayList<>();
+        Connection connection = getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("select *from category");
+        ResultSet rs = preparedStatement.executeQuery();
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            String danhmuc = rs.getString("danhmuc");
+            categories.add(new Category(id, danhmuc));
 
         }
 
@@ -61,9 +62,9 @@ public class CategoryDAO implements ICategoryDAO {
 
     @Override
     public void add(Category category) throws SQLException {
-        Connection connection=getConnection();
-        PreparedStatement preparedStatement=connection.prepareStatement("insert into category (danhmuc) value (?)");
-        preparedStatement.setString(1,category.getDanhmuc());
+        Connection connection = getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("insert into category (danhmuc) value (?)");
+        preparedStatement.setString(1, category.getDanhmuc());
         preparedStatement.executeUpdate();
     }
 
@@ -73,9 +74,9 @@ public class CategoryDAO implements ICategoryDAO {
 
     @Override
     public void delete(int id) throws SQLException {
-        Connection connection=getConnection();
-        PreparedStatement preparedStatement=connection.prepareStatement("delete from category where id=?");
-        preparedStatement.setInt(1,id);
+        Connection connection = getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("delete from category where id=?");
+        preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
     }
 

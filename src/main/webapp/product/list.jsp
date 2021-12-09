@@ -10,11 +10,12 @@
 <html>
 <head>
     <style>
-        table, th, td{
-            border:1px solid black;
+        table, th, td {
+            border: 1px solid black;
         }
-        table{
-            border-collapse:collapse;
+
+        table {
+            border-collapse: collapse;
         }
     </style>
     <title>Title</title>
@@ -33,13 +34,13 @@
     <th>Số lượng</th>
     <th>Màu</th>
     <th>Mô tả</th>
-    <th>Danh mục </th>
+    <th>Danh mục</th>
     <th>Gía</th>
     <th>Sửa</th>
     <th>Xóa</th>
     </thead>
     <tbody>
-<c:forEach var="i" begin="0" end="${product.size()-1}">
+    <c:forEach var="i" begin="0" end="${product.size()-1}">
     <tr>
         <td>${product.get(i).id}</td>
         <td>${product.get(i).name}</td>
